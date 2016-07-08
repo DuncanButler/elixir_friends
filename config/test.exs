@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :elixir_friends, ElixirFriends.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "scooby",
+  username: System.get_env("DATABASE_POSTGRESQL_USERNAME") || "postgres",
+  password: System.get_env("DATABASE_POSTGRESQL_PASSWORD") || "scooby",
   database: "elixir_friends_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
